@@ -5,10 +5,12 @@ import { BASE_PROMPT, getSystemPrompt } from "./prompts";
 import { TextBlock } from "@anthropic-ai/sdk/resources";
 import { basePrompt as nodeBasePrompt } from "./defaults/node";
 import { basePrompt as reactBasePrompt } from "./defaults/react";
-
+import cors from "cors"
+0
 const anthropic = new Anthropic();
 
 const app = express();
+app.use(cors())
 app.use(express.json());
 
 app.post("/template", async (req, res) => {
